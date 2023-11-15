@@ -1,0 +1,56 @@
+programa SerieFetuccine;
+
+funcao LerNumero(): inteiro
+var
+    numero: inteiro
+inicio
+    escreva("Digite um numero inteiro: ")
+    leia(numero)
+    retorne numero
+fim
+
+funcao ImprimirSerieFetuccine(N: inteiro, primeiro: inteiro, segundo: inteiro)
+var
+    i, termo: inteiro
+inicio
+    escreva("Serie de Fetuccine com ", N, " termos: ")
+    
+
+    escreva(primeiro, " ", segundo, " ")
+    
+    para i de 3 ate N faca
+        
+        se i % 2 = 1 entao
+            termo := primeiro + segundo
+        senao
+            termo := primeiro - segundo
+        fimse
+        
+        
+        escreva(termo, " ")
+        
+        
+        primeiro := segundo
+        segundo := termo
+    fimpara
+    
+    escreva("\n")
+fim
+
+var
+    N, primeiro, segundo: inteiro
+inicio
+    
+    N := LerNumero()
+    
+    
+    escreva("Digite os dois primeiros termos: ")
+    primeiro := LerNumero()
+    segundo := LerNumero()
+    
+    se N < 3 entao
+        escreva("A serie de Fetuccine requer pelo menos tres termos.")
+    senao
+        ImprimirSerieFetuccine(N, primeiro, segundo)
+    fimse
+fim
